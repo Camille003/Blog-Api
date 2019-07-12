@@ -5,9 +5,9 @@ const jwt      = require("jsonwebtoken");
 const Post     = require("./post");
 const Category = require("./category")
 const Message  =require("./message");
-
-
-const {jwtSecret} = require("../config/config")
+// const dotenv = require('dotenv');
+// dotenv.config();
+//const {jwtSecret} = require("../config/config")
 
 const Schema = mongoose.Schema;
 
@@ -104,7 +104,7 @@ userSchema.methods.hashPassword = async function(plainPassword){
 
 userSchema.methods.generateTokens = async function(){
     const user  = this;
-    const token = jwt.sign({_id : user.id},jwtSecret)
+    const token = jwt.sign({_id : user.id},process.env.JWT_SECRET_TEST)
 
     user.tokens.push({
         token

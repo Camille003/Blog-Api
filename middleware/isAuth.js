@@ -1,7 +1,9 @@
 //require dependencies
 const jwt  = require("jsonwebtoken")
 const User = require("../models/user");
-const {jwtSecret} = require("../config/config")
+// const dotenv = require('dotenv');
+// dotenv.config();
+//const {jwtSecret} = require("../config/config")
 
 
 
@@ -12,7 +14,7 @@ const auth = async (req,res,next) =>{
     const token = header.split(" ")[1];
 
     //decode token from the info
-    const decodedTOken = jwt.verify(token,jwtSecret);
+    const decodedTOken = jwt.verify(token,process.env.JWT_SECRET_TEST);
 
     //verify if there is a user with that token and that id
     const user = await User.findOne({_id : decodedTOken._id , 'tokens.token':token})

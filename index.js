@@ -13,11 +13,15 @@ const messageRoutes = require("./routes/message");
 const commentsRoutes = require("./routes/comment");
 const searchRoutes = require("./routes/search");
 
-const {port,jwtSecret,connectionString} = require("./config/config")
+// const dotenv  = require("dotenv")
+// dotenv.config();
+
+//const {port,jwtSecret,connectionString} = require("./config/config")
 
 
 
 const app = express();
+const port = process.env.PORT
 
 app.use((error ,req,res,next)=>{
     return res.status(500).json({
