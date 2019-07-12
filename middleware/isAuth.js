@@ -14,7 +14,7 @@ const auth = async (req,res,next) =>{
     const token = header.split(" ")[1];
 
     //decode token from the info
-    const decodedTOken = jwt.verify(token,process.env.JWT_SECRET_TEST);
+    const decodedTOken = jwt.verify(token,process.env.JWT_SECRET);
 
     //verify if there is a user with that token and that id
     const user = await User.findOne({_id : decodedTOken._id , 'tokens.token':token})

@@ -104,7 +104,7 @@ userSchema.methods.hashPassword = async function(plainPassword){
 
 userSchema.methods.generateTokens = async function(){
     const user  = this;
-    const token = jwt.sign({_id : user.id},process.env.JWT_SECRET_TEST)
+    const token = jwt.sign({_id : user.id},process.env.JWT_SECRET)
 
     user.tokens.push({
         token
