@@ -13,10 +13,7 @@ const messageRoutes = require("./routes/message");
 const commentsRoutes = require("./routes/comment");
 const searchRoutes = require("./routes/search");
 
-// const dotenv  = require("dotenv")
-// dotenv.config();
 
-//const {port,jwtSecret,connectionString} = require("./config/config")
 
 
 
